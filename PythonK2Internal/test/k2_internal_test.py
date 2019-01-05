@@ -17,7 +17,8 @@ class TestK2Internal(unittest.TestCase):
         example_domain = DomainConfig('example domain')
         config.add_domain_config(example_domain)
         
-        shutil.rmtree('homes/test_home_1')
+        if os.path.exists('homes/test_home_1'):
+            shutil.rmtree('homes/test_home_1')
         
         write_server_home('homes/test_home_1', config)
         
